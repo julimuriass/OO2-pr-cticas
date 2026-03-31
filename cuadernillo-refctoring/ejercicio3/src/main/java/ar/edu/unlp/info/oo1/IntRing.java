@@ -1,18 +1,15 @@
 package ar.edu.unlp.info.oo1;
 
-public class IntRing {
+public class IntRing extends ElementRing {
     private int[] source;
-    private int idx;
 
     public IntRing(int[] src) {
+        super();
         source = src;
-        idx = 0;
     }
 
     public int next() {
-        if (idx >= source.length)
-            idx = 0;
-        return source[idx++];
+        return source[nextIndex(this.source.length)];
     }
 
 }

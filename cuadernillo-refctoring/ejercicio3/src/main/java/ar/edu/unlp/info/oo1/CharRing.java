@@ -1,17 +1,14 @@
 package ar.edu.unlp.info.oo1;
 
-public class CharRing {
+public class CharRing extends ElementRing{
     private char[] source;
-    private int idx;
 
     public CharRing(String src) {
+        super();
         source = src.toCharArray();
-        idx = 0;
     }
 
     public char next() {
-        if (idx >= source.length)
-            idx = 0;
-        return source[idx++];
+        return source[nextIndex(this.source.length)];
     }
 }
