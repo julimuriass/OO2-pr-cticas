@@ -4,7 +4,7 @@ public class Agua implements Tipo {
 
     public double getProporcionAgua() { return 1; }
     public double getProporcionTierra() { return 0; }
-    
+    public double getProporcionPantano() { return 0; }
 
     @Override
     public boolean equals(Object o) {

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class TopografiaTest {
 	
-	Topografia topografiaAgua0, topografiaTierra0, topografiaMixta0, topografiaAgua1, topografiaTierra1, topografiaMixta1;
+	Topografia topografiaAgua0, topografiaTierra0, topografiaMixta0, topografiaAgua1, topografiaTierra1, topografiaMixta1, topografiaPantano, topografiaPantanoMixta;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -46,6 +46,20 @@ public class TopografiaTest {
 				new CeldaSimple(new Agua())
 			)
 		);
+
+		topografiaPantano = new Topografia(
+			new CeldaSimple(new Pantano())
+		);
+
+		topografiaPantanoMixta = new Topografia(
+			new CeldaCompuesta(
+				new CeldaSimple(new Pantano()),
+				new CeldaSimple(new Pantano()),
+				new CeldaSimple(new Tierra()),
+				new CeldaSimple(new Agua())
+			)
+		);
+
 	}
 	
     @Test
@@ -64,6 +78,7 @@ public class TopografiaTest {
 	public void testIgualdadTopografiasSimples() {
 		assertEquals(topografiaAgua1.compararIgualdad(topografiaAgua0), true);
 		assertEquals(topografiaTierra1.compararIgualdad(topografiaTierra0), true);
+		assertEquals(topografiaPantano.compararIgualdad(topografiaPantano), true);
 	}
 
 	@Test 
@@ -86,11 +101,18 @@ public class TopografiaTest {
 	@Test 
 	public void testIgualdadFalsaTopografiasMixtas() {
 		assertEquals(topografiaMixta0.compararIgualdad(topografiaMixta1), false);
+		assertEquals(topografiaPantanoMixta.compararIgualdad(topografiaMixta0), false);
 	}
 
 	@Test 
 	public void testIgualdadTopografiasMixtas() {
 		assertEquals(topografiaMixta0.compararIgualdad(topografiaMixta0), true);
+		assertEquals(topografiaPantanoMixta.compararIgualdad(topografiaPantanoMixta), true);
+	}
+
+	@Test
+	public void testProporcionPantanoTopografiasSimples() {
+		assertEquals(topografiaPantano.calcularProporcionPantano(), 1.0);
 	}
 
 }

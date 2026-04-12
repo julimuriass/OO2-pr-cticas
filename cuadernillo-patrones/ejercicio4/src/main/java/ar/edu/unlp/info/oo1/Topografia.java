@@ -15,6 +15,10 @@ public class Topografia {
         return imagen.calcularProporcionTierra();
     }
 
+    public double calcularProporcionPantano() {
+        return imagen.calcularProporcionPantano();
+    }
+
     public boolean compararIgualdad(Topografia topografia) {
         return this.imagen.equals(topografia.imagen);
     }

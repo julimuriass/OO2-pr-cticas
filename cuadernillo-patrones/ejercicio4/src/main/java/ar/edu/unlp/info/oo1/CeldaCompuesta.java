@@ -25,6 +25,10 @@ public class CeldaCompuesta implements Celda {
         return (Arrays.stream(celditas).mapToDouble(c -> c.calcularProporcionTierra()).sum())/4;
     }
 
+    public double calcularProporcionPantano() {
+        return (Arrays.stream(celditas).mapToDouble(c -> c.calcularProporcionPantano()).sum())/4;
+    }
+
 
     @Override
     public boolean equals(Object o) {

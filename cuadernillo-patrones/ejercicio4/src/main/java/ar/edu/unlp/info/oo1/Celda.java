@@ -4,6 +4,6 @@ public interface Celda {
 
 	public double calcularProporcionAgua();
 	public double calcularProporcionTierra();
-
+	public double calcularProporcionPantano();
 	
 } 

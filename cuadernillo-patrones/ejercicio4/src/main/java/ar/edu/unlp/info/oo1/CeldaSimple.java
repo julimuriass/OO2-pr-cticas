@@ -17,6 +17,11 @@ public class CeldaSimple implements Celda {
         return tipo.getProporcionTierra();
     }
 
+    @Override
+    public double calcularProporcionPantano() {
+        return tipo.getProporcionPantano();
+    }
+
     
     @Override
     public boolean equals(Object o) {

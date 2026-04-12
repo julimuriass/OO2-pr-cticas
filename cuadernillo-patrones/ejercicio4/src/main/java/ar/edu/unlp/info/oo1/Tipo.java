@@ -4,5 +4,6 @@ public interface Tipo {
 
     public double getProporcionAgua();
     public double getProporcionTierra();
+    public double getProporcionPantano();
     
 } 
